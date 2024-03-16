@@ -1,1 +1,12 @@
 services:
+  mongodb:
+    image: 'mongo:latest'
+    container_name: 'jot_mongo'
+    environment:
+      - 'MONGO_INITDB_DATABASE=jot_db'
+      - 'MONGO_INITDB_ROOT_PASSWORD=secret'
+      - 'MONGO_INITDB_ROOT_USERNAME=root'
+    volumes:
+      - './mongo-volume:/data/db'
+    ports:
+      - '27017'
